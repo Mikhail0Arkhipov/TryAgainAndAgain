@@ -9,7 +9,7 @@ using namespace std;
 void create(char* array, const int size);
 
 /*!
- * \brief Функция ввывода массива на экран
+ * \brief Функция вывода массива на экран
  * \param size Размер массива
  */
 void print(char* array, const int size);
@@ -38,7 +38,7 @@ int main()
 	system("pause");
 }
 
-void create(char* array, int size)
+void create(char* array, const int size)
 {
 	if (size < 1) return;
 	array = new char[size];
@@ -48,7 +48,7 @@ void create(char* array, int size)
 	}
 }
 
-void print(char* array, int size)
+void print(char* array, const int size)
 {
 	for (int i = 0; i < size; ++i)
 	{
@@ -57,7 +57,7 @@ void print(char* array, int size)
 	cout << endl;
 }
 
-double getAverage(char* array, int size)
+double getAverage(char* array, const int size)
 {
 	double result = 0.0;
 	for (int i = 0; i < size; ++i)
