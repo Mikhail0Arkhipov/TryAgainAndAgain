@@ -9,7 +9,7 @@ using namespace std;
 void create(char* array, const int size);
 
 /*!
- * \brief Функция вывода массива на экран
+ * \brief Функция ввывода массива на экран
  * \param size Размер массива
  */
 void print(char* array, const int size);
