@@ -3,24 +3,22 @@
 using namespace std;
 
 /*!
- * Функция инициализации массива
+ * \brief Функция инициализации массива
+ * \param size Размер массива
  */
-void create(char* array, int size);
+void create(char* array, const int size);
 
 /*!
- * Функция ввывода массива на экран
+ * \brief Функция ввывода массива на экран
+ * \param size Размер массива
  */
-void print(char* array, int size);
+void print(char* array, const int size);
 
 /*!
- * Функция вычисления среднего арифметического элементов массива
+ * \brief Функция вычисления среднего арифметического элементов массива
+ * \param size Размер массива
  */
-double getAverage(char* array, int size);
-
-/*!
- * Функция вывода среднего арифметического элементов массива на экран
- */
-void print_result(char* array, int size);
+double getAverage(char* array, const int size);
 
 int main()
 {
@@ -35,21 +33,18 @@ int main()
 		cout << "Размер масива изменен на 2!\n";
 		size = 2;
 	}
-	create(&array, size);
-	print_result(array, size);
+	create(array, size);
+	getAverage(array, size);
 	system("pause");
 }
 
 void create(char* array, int size)
 {
 	if (size < 1) return;
-	*array = new char[size];
-	/*!
-	* Заполнение массивва случайными данными
-	*/
+	array = new char[size];
 	for (int i = 0; i < size; ++i)
 	{
-		(*array)[i] = (char)rand();
+		array[i] = (char)rand();
 	}
 }
 
@@ -57,7 +52,7 @@ void print(char* array, int size)
 {
 	for (int i = 0; i < size; ++i)
 	{
-		cout << (int)array[i] << " ";
+		cout << static_cast<int>(array[i]) << " ";
 	}
 	cout << endl;
 }
@@ -69,14 +64,5 @@ double getAverage(char* array, int size)
 	{
 		result += array[i];
 	}
-
 	return result / size;
-}
-
-void print_result(char* array, int size)
-{
-	cout << "Массив : \n";
-	print(array, size);
-	cout << "Среднее арифметическое в созданном массиве : " <<
-		getAverage(array, size) << endl;
 }
